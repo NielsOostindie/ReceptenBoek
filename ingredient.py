@@ -4,4 +4,6 @@ class Ingredient:
         self.__naam__ = naam
         self.__hoeveelheid__ = hoeveelheid
         self.__eenheid__ = eenheid
-   
+
+    def __str__(self):
+        return f"{self.__hoeveelheid__} {self.__eenheid__} {self.__naam__}"
