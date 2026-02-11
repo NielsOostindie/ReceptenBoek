@@ -16,3 +16,11 @@ class Recept:
         factor = aantal_personen / self.__personen
         for ingredient in self.__ingredient_list:
             ingredient._Ingredient__hoeveelheid *= factor
+    
+    def bereken_totaal_kcal(self):
+        totaal_kcal = 0
+        for ingredient in self.__ingredient_list:
+            kcal = ingredient.get_kcal()
+            if kcal is not None:
+                totaal_kcal += kcal
+        return totaal_kcal
