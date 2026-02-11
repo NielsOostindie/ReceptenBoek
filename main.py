@@ -15,40 +15,30 @@ def main():
     recepten.append(recept1)
 
     recept2 = Recept("Gehakt quiche met paprika", "Een heerlijke quiche met gehakt en paprika.")
-
-    recept2.voeg_ingredient_toe(Ingredient("gehakt", 300, "gram"))
-    recept2.voeg_ingredient_toe(Ingredient("paprika", 200, "gram"))
-    recept2.voeg_ingredient_toe(Ingredient("room", 100, "ml"))
-
-    recept2.voeg_stap_toe(Stap("Verwarm de oven op 180 graden."))
-    recept2.voeg_stap_toe(Stap("Snijd de paprika in kleine blokjes en laat ze in een pan met wat olie pruttelen."))
-    recept2.voeg_stap_toe(Stap("Voeg het gehakt toe aan de paprika en bak het rul."))
-    recept2.voeg_stap_toe(Stap("Meng het gehakt en de paprika met de room en giet het mengsel in een quichevorm."))
-    recept2.voeg_stap_toe(Stap("Bak de quiche in de oven voor ongeveer 30 minuten, of tot de bovenkant goudbruin is."))
-
-    recept3 = Recept("Pasta Carbonara", "Een klassieke Italiaanse pasta met een romige saus van eieren, kaas en spek.")
-    recept3.voeg_ingredient_toe(Ingredient("pasta", 250, "gram"))
-    recept3.voeg_ingredient_toe(Ingredient("spek", 150, "gram"))
-    recept3.voeg_ingredient_toe(Ingredient("eieren", 2, "stuks"))
-    recept3.voeg_ingredient_toe(Ingredient("Parmezaanse kaas", 50, "gram"))
-
-    recept3.voeg_stap_toe(Stap("Kook de pasta volgens de aanwijzingen op de verpakking."))
-    recept3.voeg_stap_toe(Stap("Bak het spek in een pan tot het knapperig is."))
-    recept3.voeg_stap_toe(Stap("Kluts de eieren in een kom en meng de Parmezaanse kaas erdoor."))
-    recept3.voeg_stap_toe(Stap("Giet de pasta af en meng deze met het spek en het eiermengsel. Serveer direct."))
+    recept2.voeg_ingredient_toe(Ingredient("gehakt", 500, "gram"))
+    recept2.voeg_ingredient_toe(Ingredient("paprika", 2, "stuks"))
+    recept2.voeg_stap_toe(Stap("Verwarm de oven voor op 180 graden."))
+    recept2.voeg_stap_toe(Stap("Bak het gehakt rul in een pan en voeg de gesneden paprika toe."))
 
     recepten.append(recept2)
-    recepten.append(recept3)
 
+    recept3 = Recept("Pasta Carbonara", "Een klassieke Italiaanse pasta met spek en kaas.")
+    recept3.voeg_ingredient_toe(Ingredient("pasta", 400, "gram"))
+    recept3.voeg_ingredient_toe(Ingredient("spek", 200, "gram"))
+    recept3.voeg_stap_toe(Stap("Kook de pasta volgens de aanwijzingen op de verpakking."))
+    recept3.voeg_stap_toe(Stap("Bak het spek krokant in een pan."))
+
+    recepten.append(recept3)
+    
     for recept in recepten:
+        print(f"hoeveel personen wil je: {recept._Recept__naam} maken?")
+        aantal_personen = int(input())
+        recept.schaal_recept(aantal_personen)
         print(f"Recept: {recept._Recept__naam}")
         print(f"Omschrijving: {recept._Recept__omschrijving}")
-        print(f"Ingredienten:")
+        print("Ingrediënten:")
         for ingredient in recept._Recept__ingredient_list:
             print(f"  - {ingredient}")
-        print(f"Stappen:")
-        for i, stap in enumerate(recept._Recept__stappen, 1):
-            print(f"  {i}. {stap}")
         print()
 
 if __name__ == "__main__":
