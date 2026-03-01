@@ -35,3 +35,6 @@ class Ingredient:
 
     def heeft_plantaardig_alternatief(self) -> bool:
         return self.__plantaardig_alternatief is not None
+
+    def get_plantaardig_alternatief(self):
+        return self.__plantaardig_alternatief

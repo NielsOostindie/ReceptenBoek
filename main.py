@@ -1,6 +1,8 @@
 from recept import Recept
 from ingredient import Ingredient
 from stap import Stap
+from database import initialiseer_database, sla_recept_op, laad_recepten, verwijder_recept_uit_db
+from pdf_generator import genereer_pdf
 
 
 def maak_startrecepten():
@@ -116,12 +118,18 @@ def toon_flow(recepten):
 
     recept.toon_recept(plantaardig)
 
+    # PDF genereren
+    if vraag_ja_nee("Wil je een PDF genereren van dit recept?"):
+        bestandsnaam = genereer_pdf(recept, plantaardig)
+        print(f"PDF opgeslagen als: {bestandsnaam}")
+
     print("\n1. Verwijder dit recept")
     print("2. Terug naar menu")
     while True:
         keuze = input("Keuze: ").strip()
         if keuze == "1":
             if vraag_ja_nee(f"Weet je zeker dat je '{recept.get_naam()}' wilt verwijderen?"):
+                verwijder_recept_uit_db(recept.get_naam())
                 recepten.remove(recept)
                 print("Recept verwijderd.")
             return
@@ -176,13 +184,21 @@ def toevoegen_flow(recepten):
         if not vraag_ja_nee("Nog een stap toevoegen?"):
             break
 
+    sla_recept_op(nieuw)
     recepten.append(nieuw)
-    print(f"\nRecept '{naam}' toegevoegd!")
+    print(f"\nRecept '{naam}' toegevoegd en opgeslagen!")
     nieuw.toon_recept()
 
 
 def main():
-    recepten = maak_startrecepten()
+    initialiseer_database()
+    recepten = laad_recepten()
+
+    # Voeg startrecepten toe als de database leeg is
+    if not recepten:
+        recepten = maak_startrecepten()
+        for r in recepten:
+            sla_recept_op(r)
 
     while True:
         toon_menu()
