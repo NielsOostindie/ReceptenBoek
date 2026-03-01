@@ -1,0 +1,66 @@
+-------
+800978c 2026-03-01 16:51 [NielsOostindie] | PDF export and SQLite persistence
+
+ database.py      | 136 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ ingredient.py    |   5 +-
+ main.py          |  20 +++++++-
+ pdf_generator.py | 110 ++++++++++++++++++++++++++++++++++++++++++++
+ recept.py        |   3 ++
+ 5 files changed, 271 insertions(+), 3 deletions(-)
+
+-------
+97c36de 2026-03-01 14:23 [NielsOostindie] | add menu, add and delete recipe functionality
+
+ ingredient.py |  44 +++++++----
+ main.py       | 241 ++++++++++++++++++++++++++++++++++++++++++++++------------
+ recept.py     |  74 +++++++++++++-----
+ stap.py       |  21 +++--
+ 4 files changed, 290 insertions(+), 90 deletions(-)
+
+-------
+21548ee 2026-02-11 15:58 [NielsOostindie] | Added all fr
+
+ ingredient.py | 18 +++++++++++++++---
+ main.py       | 51 ++++++++++++++++++++++++++++++++++-----------------
+ recept.py     | 10 +++++++++-
+ stap.py       | 11 +++++++++--
+ 4 files changed, 67 insertions(+), 23 deletions(-)
+
+-------
+c9e79ad 2026-02-11 15:25 [NielsOostindie] | Added portiom size
+
+ ingredient.py | 10 +++++-----
+ main.py       | 40 +++++++++++++++-------------------------
+ recept.py     |  9 ++++++---
+ stap.py       |  5 +----
+ 4 files changed, 27 insertions(+), 37 deletions(-)
+
+-------
+7396644 2026-02-06 12:09 [NielsOostindie] | Print all recipes and added 2 more
+
+ ingredient.py |  4 +++-
+ main.py       | 36 +++++++++++++++++++++++++++++++-----
+ recept.py     | 12 +++++++++---
+ stap.py       |  5 ++++-
+ 4 files changed, 47 insertions(+), 10 deletions(-)
+
+-------
+02f13d5 2026-02-06 11:58 [NielsOostindie] | Added all classes
+
+ ingredient.py |  7 +++++++
+ main.py       | 20 +++++++++++++-------
+ stap.py       |  3 +++
+ 3 files changed, 23 insertions(+), 7 deletions(-)
+
+-------
+e8db1ec 2026-02-06 11:55 [NielsOostindie] | innit
+
+ main.py   | 23 +++++++++++++++++++++++
+ recept.py |  9 +++++++++
+ 2 files changed, 32 insertions(+)
+
+-------
+58b135f 2026-02-06 11:54 [Gin.Niels] | Initial commit
+ .gitignore | 207 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ LICENSE    |  21 +++++++
+ 2 files changed, 228 insertions(+)
